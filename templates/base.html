@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/script.js"></script>
+
+
+    <title>
+        {% block title %}
+        
+        {% endblock %}        
+        
+    </title>
+</head>
+<body class="bg-black text-gray-300 font-sans pb-[1000vh]">
+
+    <div id="loader">
+        <div class="loading-screen">
+            <div class="loading-text" id="loading-text">LOADING</div>
+            <div class="loading-bar">
+              <div class="loading-fill"></div>
+            </div>
+          </div>
+    </div>
+
+    <header class="pipboy-bg text-l pipboy-green font-pipboy glow flex flex-col items-center justify-start p-4 ">
+
+        <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden">
+          <ul class="flex justify-around p-4 border-b border-green-500">
+            <li><a href="#" class="pip-hover px-8 py-2 block">STATS</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">ITEMS</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">DATA</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">MAP</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">RADIO</a></li>
+          </ul>
+        </nav>
+      
+      </header>
+
+      <header class="pipboy-bg text-l pipboy-green font-pipboy glow flex flex-col items-center justify-start p-4 nav-hidden fixed ">
+
+        <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden">
+          <ul class="flex justify-around p-4 border-b border-green-500">
+            <li><a href="#" class="pip-hover px-8 py-2 block">STATS</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">ITEMS</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">DATA</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">MAP</a></li>
+            <li><a href="#" class="pip-hover px-8 py-2 block">RADIO</a></li>
+          </ul>
+        </nav>
+      
+      </header>
+
+    <div id="main-content" class="hidden">
+    {% block content %}
+    <!-- Content will be injected here from child templates -->
+    {% endblock %}
+    </div>
+    
+</body>
+</html>
