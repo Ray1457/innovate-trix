@@ -79,4 +79,43 @@
 }
 
 
+.reviews-container {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.reviews-container > .wrapper {
+    display: inline-block;
+    animation: scrollReviews 20s linear infinite;
+}
+
+.reviews-container > .wrapper > div {
+    display: inline-block;
+    margin-right: 10px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    z-index: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.reviews-container > .wrapper > div:hover {
+    transform: scale(1.2);
+    box-shadow: 2px 2px 5px 5px black;
+    z-index: 10;
+}
+
+/* Define the animation */
+@keyframes scrollReviews {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
   

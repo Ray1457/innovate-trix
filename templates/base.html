@@ -56,7 +56,10 @@
           </div>
     </div>
 
-    <header class="w-full text-l glow flex flex-col items-center justify-center bg-transparent mt-4 block">
+    <header class="w-screen text-l glow flex items-center justify-between bg-transparent mt-4 block px-16">
+      <a href="{{url_for('home')}}" class="flex items-center justify-center">
+        <img src="../static/img/logo.png" alt="Logo" class="w-32 h-32 rounded-full hover:scale-105 transition-transform duration-100 ease-in-out">
+      </a>
       <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
         <ul class="flex justify-around p-4 border-b border-green-500 text-[#00ff00]">
         <li><a href="{{url_for('home')}}" class="px-8 py-2 block">HOME</a></li>
@@ -66,6 +69,7 @@
         <li><a href="{{url_for('origins')}}" class=" px-8 py-2 block">ORIGINS</a></li>
         </ul>
       </nav>
+      <div class="w-32 h-32"></div>
     </header>
 
     <header class="w-full text-l  glow flex flex-col items-center justify-center nav-hidden fixed bg-transparent ">
@@ -84,6 +88,61 @@
         {% block content %}
         {% endblock %}
     </div>
+
+    <!-- Footer -->
+<footer class="bg-black text-white text-xs py-6 px-4 flex flex-col items-center space-y-4">
+  <div class="flex space-x-6">
+    <a href="{{url_for('home')}}" class="glitch-hover">Home</a>
+      <a href="#about" class="glitch-hover">About</a>
+      <a href="#menu" class="glitch-hover mt-2">Menu</a>
+  </div>
+  <div class="opacity-40 text-[10px] tracking-widest">
+      © 2087 Fallout Foods. Survive in Style™
+  </div>
+</footer>
+
+<style>
+/* Flickering glitch effect on hover */
+.glitch-hover {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: #ff00c8;
+  background: transparent;
+  overflow: hidden;
+  width: 0;
+  transition: width 0.3s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.glitch-hover:hover {
+  color: #ff00c8;
+  animation: flicker 0.3s linear infinite alternate;
+}
+
+/* Slight flicker animation */
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Optional: make links feel less rigid */
+footer a {
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+</style>
+
 
     <script>
         AOS.init();
