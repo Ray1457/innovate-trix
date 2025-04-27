@@ -1,52 +1,64 @@
-/* cursors */
 
-:root {
-    cursor: url('../img/cursor4.png'), auto;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../img/overlay.jpg') repeat; /* path to your overlay image */
+  background-size: cover;
+  opacity: 0.4; /* you can adjust this */
+  pointer-events: none;
+  z-index: 0; /* keep it behind interactive content */
+  mix-blend-mode: screen; /* makes whites blend and blacks invisible */
 }
 
-a:hover, button:hover, .hoverable:hover {
-  cursor: url('../img/glow_cursor.png') 0 0, auto;
-}
-
-/* nav bar */
 
 @font-face {
-  font-family: 'PipBoy';
-  src: url('https://fonts.cdnfonts.com/s/21489/Pipboy.ttf') format('truetype');
+  font-family: 'Crostan-Bold';
+  src: url(../fonts/Crostan-Bold.ttf);
 }
 
-.font-pipboy {
-  font-family: 'PipBoy', monospace;
+@font-face {
+  font-family: 'Crostan';
+  src: url(../fonts/Crostan-Regular.ttf);
 }
 
-.pipboy-green {
-  color: #00EE00;
-}
 
-.pipboy-bg {
-  background-color: #000000;
-  backdrop-filter: blur(5px);
-}
 
 .glow {
   text-shadow: 0 0 3px #00EE00, 0 0 5px #00EE00;
 }
 
-.pip-hover {
-  transition: transform 0.2s ease-in-out;
-  transform: scale(1);
+
+.nav {
+  background-image: repeating-linear-gradient(
+  to bottom,
+  rgba(255, 255, 255, 0.05),
+  rgba(255, 255, 255, 0.05) 10px,
+  transparent 1px,
+  transparent 2px
+);
+background-size: 100% 2px;
+
+
 }
 
-.pip-hover:hover {
-  transform: scale(1.2);
+nav a:hover {
+  text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+  transform: translateY(-2px);
+  transition: all 0.2s;
 }
+
+
+
 
 /* Hidden navigation bar (initial state) */
 .nav-hidden {
     position: fixed;
     top: -100px; /* Start off-screen */
     left: 0;
-    width: 100%;
     background-color: #000; /* Match your theme */
     z-index: 1000;
     transition: all 0.5s ease-in-out; /* Smooth slide-in effect */
@@ -55,7 +67,7 @@ a:hover, button:hover, .hoverable:hover {
 
 /* Visible navigation bar (after scrolling) */
 .nav-visible {
-    top: 0; /* Slide into view */
+    top: 1rem; /* Slide into view */
     opacity: 1; /* Fully visible */
 }
 
@@ -68,7 +80,6 @@ html, body {
   background: black;
   font-family: 'Courier New', Courier, monospace;
   color: #00FF00;
-  overflow: hidden;
 }
 #loader {
   position: fixed;
@@ -104,7 +115,7 @@ body.loaded #loader {
 }
 
 .loading-text {
-  font-size: 2em;
+  font-size: 1em;
   margin-bottom: 20px;
 }
 

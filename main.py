@@ -1,10 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
+
+@app.route('/origins')
+def origins():
+    return render_template('origins.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

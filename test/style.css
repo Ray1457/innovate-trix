@@ -1,0 +1,71 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    color: #a7cdbd; /* worn white */
+    background-color: #23465a; /* fallback */
+  }
+  
+  /* Parallax background */
+  .parallax {
+    background-image: url('../static/img/home_poster.png'); /* Your poster image */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Overlay text */
+  .overlay {
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    animation: flicker 2s infinite alternate;
+  }
+  
+  .overlay h1 {
+    font-size: 48px;
+    color: #c0b56a; /* dusty yellow */
+  }
+  
+  .overlay p {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  
+  /* Flickering animation */
+  @keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+  }
+  
+  /* Content below */
+  .content {
+    padding: 60px 30px;
+    background-color: #174618; /* dark green */
+  }
+  
+  .content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #c0b56a;
+  }
+  
+  .content p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  

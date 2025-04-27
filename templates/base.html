@@ -7,15 +7,45 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="../static/js/script.js"></script>
 
+    <!-- Additional libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/fonts/helvetica.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <script>
+      tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'charcoal': '#23465a',
+                    'dark-green': '#174618',
+                    'light-green': '#a7cdbd',
+                    'lemon-yellow': '#c0b56a',
+
+                }
+              }
+            }
+          }
+    </script>
+
+    <!-- Allow child templates to add extra head content -->
+    {% block extra_head %}
+    {% endblock %}
 
     <title>
         {% block title %}
-        
-        {% endblock %}        
-        
+        {% endblock %}
     </title>
 </head>
-<body class="bg-black text-gray-300 font-sans pb-[1000vh]">
+<body class="bg-black text-gray-300 font-sans overflow-x-hidden">
 
     <div id="loader">
         <div class="loading-screen">
@@ -26,39 +56,37 @@
           </div>
     </div>
 
-    <header class="pipboy-bg text-l pipboy-green font-pipboy glow flex flex-col items-center justify-start p-4 ">
+    <header class="w-full text-l glow flex flex-col items-center justify-center bg-transparent mt-4 block">
+      <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
+        <ul class="flex justify-around p-4 border-b border-green-500 text-[#00ff00]">
+        <li><a href="{{url_for('home')}}" class="px-8 py-2 block">HOME</a></li>
+        <li><a href="#" class=" px-8 py-2 block">ITEMS</a></li>
+        <li><a href="#" class=" px-8 py-2 block">DATA</a></li>
+        <li><a href="#" class=" px-8 py-2 block">MAP</a></li>
+        <li><a href="{{url_for('origins')}}" class=" px-8 py-2 block">ORIGINS</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden">
-          <ul class="flex justify-around p-4 border-b border-green-500">
-            <li><a href="#" class="pip-hover px-8 py-2 block">STATS</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">ITEMS</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">DATA</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">MAP</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">RADIO</a></li>
-          </ul>
-        </nav>
-      
-      </header>
+    <header class="w-full text-l  glow flex flex-col items-center justify-center nav-hidden fixed bg-transparent ">
+      <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
+        <ul class="flex justify-around p-4 border-b border-green-500 text-[#00ff00]">
+        <li><a href="{{url_for('home')}}" class=" px-8 py-2 block">HOME</a></li>
+        <li><a href="#" class=" px-8 py-2 block">ITEMS</a></li>
+        <li><a href="#" class=" px-8 py-2 block">DATA</a></li>
+        <li><a href="#" class=" px-8 py-2 block">MAP</a></li>
+        <li><a href="{{url_for('origins')}}" class=" px-8 py-2 block">ORIGINS</a></li>
+        </ul>
+      </nav>
+    </header>
 
-      <header class="pipboy-bg text-l pipboy-green font-pipboy glow flex flex-col items-center justify-start p-4 nav-hidden fixed ">
-
-        <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden">
-          <ul class="flex justify-around p-4 border-b border-green-500">
-            <li><a href="#" class="pip-hover px-8 py-2 block">STATS</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">ITEMS</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">DATA</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">MAP</a></li>
-            <li><a href="#" class="pip-hover px-8 py-2 block">RADIO</a></li>
-          </ul>
-        </nav>
-      
-      </header>
-
-    <div id="main-content" class="hidden">
-    {% block content %}
-    <!-- Content will be injected here from child templates -->
-    {% endblock %}
+    <div id="main-content">
+        {% block content %}
+        {% endblock %}
     </div>
-    
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
