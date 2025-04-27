@@ -1,4 +1,13 @@
 
+
+:root {
+  --charcoal: #23465a;
+  --dark-green: #174618;
+  --light-green: #a7cdbd;
+  --lemon-yellow: #c0b56a;
+}
+
+
 body::before {
   content: "";
   position: fixed;
@@ -25,10 +34,15 @@ body::before {
   src: url(../fonts/Crostan-Regular.ttf);
 }
 
+@font-face {
+  font-family: 'Integral';
+  src: url(../fonts/Fontspring-DEMO-integralcf-regular.otf);
+}
+
 
 
 .glow {
-  text-shadow: 0 0 3px #00EE00, 0 0 5px #00EE00;
+  text-shadow: 0 0 3px var(--light-green), 0 0 5px var(--light-green);
 }
 
 
@@ -46,7 +60,7 @@ background-size: 100% 2px;
 }
 
 nav a:hover {
-  text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+  text-shadow: 0 0 5px var(--dark-green), 0 0 10px var(--dark-green);
   transform: translateY(-2px);
   transition: all 0.2s;
 }

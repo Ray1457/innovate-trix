@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block extra_head %}
+
+{% endblock %}
+
+{% block title %}
+Merch 
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .top-down-vignette {
+        background: linear-gradient(to bottom, black 0%, transparent 40%), linear-gradient(to top, black 0%, transparent 40%);
+    }
+</style>
+
+<main>
+    <div class="flex items-center justify-center h-[80vh] bg-black relative">
+        <div class="h-full w-full relative crt">
+            <div class="absolute top-0 left-0 w-full h-full top-down-vignette z-10"> </div>
+            <img src="../static/img/merch hero.png" alt="" class="w-full h-[95%] object-cover object-center" data-aos="zoom-in" data-aos-duration="350">
+        </div>
+        <div class="absolute top-[40%] right-[20%] flex flex-col items-center justify-center text-center " data-aos ="slide-left" data-aos-duration="350" >
+            <span class="text-5xl font-bold text-gray-200 shadow-md" style="font-family: 'Crostan-Bold';">
+                FEAST HARD. <br>
+                FLEX HARDER
+            </span>
+            <span class="italic text-light-green text-sm mt-4" style="font-family: 'Helvetica';">
+                Because good taste doesn’t stop at the table.
+            </span>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

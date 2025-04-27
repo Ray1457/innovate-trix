@@ -10,5 +10,9 @@ def home():
 def origins():
     return render_template('origins.html')
 
+@app.route('/merch')
+def merch():
+    return render_template('merch.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

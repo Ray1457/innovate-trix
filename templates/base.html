@@ -60,25 +60,23 @@
       <a href="{{url_for('home')}}" class="flex items-center justify-center">
         <img src="../static/img/logo.png" alt="Logo" class="w-32 h-32 rounded-full hover:scale-105 transition-transform duration-100 ease-in-out">
       </a>
-      <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
-        <ul class="flex justify-around p-4 border-b border-green-500 text-[#00ff00]">
+      <nav class="max-w-4xl border border-light-green rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
+        <ul class="flex justify-around p-4 border-b border-light-green text-light-green">
         <li><a href="{{url_for('home')}}" class="px-8 py-2 block">HOME</a></li>
-        <li><a href="#" class=" px-8 py-2 block">ITEMS</a></li>
-        <li><a href="#" class=" px-8 py-2 block">DATA</a></li>
-        <li><a href="#" class=" px-8 py-2 block">MAP</a></li>
+        <li><a href="#" class=" px-8 py-2 block">MENU</a></li>
+        <li><a href="{{url_for('merch')}}" class=" px-8 py-2 block">MERCH</a></li>
         <li><a href="{{url_for('origins')}}" class=" px-8 py-2 block">ORIGINS</a></li>
         </ul>
       </nav>
-      <div class="w-32 h-32"></div>
+      <a href = "" class="hover:scale-105 w-32 h-32 flex items-center justify-center"><ion-icon name="cart-outline" class="text-5xl"></ion-icon> </a>
     </header>
 
     <header class="w-full text-l  glow flex flex-col items-center justify-center nav-hidden fixed bg-transparent ">
-      <nav class="max-w-4xl border border-green-500 rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
-        <ul class="flex justify-around p-4 border-b border-green-500 text-[#00ff00]">
-        <li><a href="{{url_for('home')}}" class=" px-8 py-2 block">HOME</a></li>
-        <li><a href="#" class=" px-8 py-2 block">ITEMS</a></li>
-        <li><a href="#" class=" px-8 py-2 block">DATA</a></li>
-        <li><a href="#" class=" px-8 py-2 block">MAP</a></li>
+      <nav class="max-w-4xl border border-light-green rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
+        <ul class="flex justify-around p-4 border-b border-light-green text-light-green">
+        <li><a href="{{url_for('home')}}" class="px-8 py-2 block">HOME</a></li>
+        <li><a href="#" class=" px-8 py-2 block">MENU</a></li>
+        <li><a href="{{url_for('merch')}}" class=" px-8 py-2 block">MERCH</a></li>
         <li><a href="{{url_for('origins')}}" class=" px-8 py-2 block">ORIGINS</a></li>
         </ul>
       </nav>
@@ -91,18 +89,17 @@
 
     <!-- Footer -->
 <footer class="bg-black text-white text-xs py-6 px-4 flex flex-col items-center space-y-4">
-  <div class="flex space-x-6">
+  <div class="flex gap-6">
     <a href="{{url_for('home')}}" class="glitch-hover">Home</a>
       <a href="#about" class="glitch-hover">About</a>
-      <a href="#menu" class="glitch-hover mt-2">Menu</a>
+      <a href="#menu" class="glitch-hover">Menu</a>
   </div>
   <div class="opacity-40 text-[10px] tracking-widest">
-      © 2087 Fallout Foods. Survive in Style™
+      © 2087 FoodOut 4. Eat like it's the end of the world™.
   </div>
 </footer>
 
 <style>
-/* Flickering glitch effect on hover */
 .glitch-hover {
   position: relative;
   text-decoration: none;
@@ -114,7 +111,7 @@
   position: absolute;
   left: 2px;
   top: 0;
-  color: #ff00c8;
+  color: #a7cdbd;
   background: transparent;
   overflow: hidden;
   width: 0;
@@ -124,7 +121,7 @@
 }
 
 .glitch-hover:hover {
-  color: #ff00c8;
+  color: #a7cdbd;
   animation: flicker 0.3s linear infinite alternate;
 }
 
