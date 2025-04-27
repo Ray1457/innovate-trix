@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: black;
+      font-family: 'Courier New', Courier, monospace;
+      color: #00FF00;
+      overflow: hidden;
+    }
+
+    .loading-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      animation: flicker 1s infinite alternate;
+    }
+
+    .loading-text {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .loading-bar {
+      width: 300px;
+      height: 20px;
+      border: 2px solid #00FF00;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loading-fill {
+      height: 100%;
+      width: 0%;
+      background: #00FF00;
+      animation: load 2s linear forwards;
+    }
+
+    @keyframes load {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    @keyframes flicker {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-screen">
+    <div class="loading-text" id="loading-text">LOADING</div>
+    <div class="loading-bar">
+      <div class="loading-fill"></div>
+    </div>
+  </div>
+
+  <script>
+    // Cycle dots after "LOADING"
+    const loadingText = document.getElementById('loading-text');
+    let dotCount = 0;
+
+    setInterval(() => {
+      dotCount = (dotCount + 1) % 4; // Cycle between 0, 1, 2, 3
+      loadingText.textContent = 'LOADING' + '.'.repeat(dotCount);
+    }, 300); // Update every 500ms
+
+
+  </script>
+</body>
+</html>

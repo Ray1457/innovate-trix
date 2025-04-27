@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+
+
+{% block title %}Origins{% endblock %}
+
+{%block content%}
+ 
+  <style>
+    /* Optional glowing effect classes */
+.glow {
+  text-shadow: 0 0 8px #a7cdbd;
+}
+.glow-soft {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #a7cdbd, #164616);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.text-gradient-blue {
+    background: linear-gradient(to right, #6283a7, #23465a); /* from-blue-300 to-blue */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+  </style>
+    <main class="flex flex-col gap-8 mt-16 mx-12 items-center text-gray-300">
+     
+      <!-- Our Story Section -->
+      <section class="flex gap-4 w-full justify-between items-start max-w-[80rem] flex-col md:flex-row">
+        <div class="flex items-center" data-aos="fade-up-right">
+          <h1 class="font-black text-7xl text-gradient">            
+            Our Story
+          </h1>
+          <ion-icon name="arrow-down-outline" class="-rotate-45 text-8xl mt-2 text-dark-green"></ion-icon>
+        </div>
+ 
+        <div class="w-full md:w-3/5 text-lg mt-4" data-aos="fade-up-left" >
+          <p class="font-semibold mb-4 text-lemon-yellow">
+            Born from bunker kitchens and fueled by post-war necessity, Vault Bites is more than a food chain — it’s a resistance.
+          </p>
+          <p>
+            In the smoldering ruins of 2287, when the surface became a wasteland and trust in fresh food was extinct, we emerged. We repurpose, reimagine, and resurrect forgotten ingredients from a broken world — making meals for survivors, by survivors.
+          </p>
+        </div>
+      </section>
+
+<section class="flex gap-4 mt-16 w-full justify-between items-start max-w-[80rem] flex-col md:flex-row-reverse">
+  <!-- Heading and Arrow Container -->
+  <div class="flex items-center gap-4" data-aos="fade-down-right" data-aos-delay="300">
+    <ion-icon name="arrow-up-outline" class="rotate-[-90deg] text-8xl text-[#164616]"></ion-icon>
+    <h1 class="font-black text-7xl text-gradient">
+      Our Mission
+    </h1>
+  </div>
+
+  <!-- Text Content -->
+  <div class="w-full md:w-3/5 text-lg mt-4" data-aos="fade-down-left" data-aos-delay="300">
+    <p class="font-semibold mb-4">
+     In a world where good meals are rare, we believe food should be more than just rations. Our mission is to serve hearty, handcrafted meals inspired by the Fallout universe—whether you’re a scavenger, settler, or synth
+    </p>
+  </div>
+</section>
+
+<section class="w-full px-4 py-16 bg-black flex flex-col items-center md:flex-row max-w-[80rem] mx-auto gap-12 md:gap-20 mt-12">
+  <!-- Left: Heading and optional visual -->
+  <div class="flex flex-col items-start md:w-2/5" data-aos="flip-up" data-aos-delay="500">
+    <div class="flex items-center gap-3">
+     
+      <h2 class="text-7xl font-extrabold text-gradient">
+        Our Origin
+       
+          <ion-icon name="arrow-down-outline" class="-rotate-45 text-8xl mt-2 text-[#164616]"></ion-icon>
+      </h2>
+    </div>
+   
+  </div>
+
+  <!-- Right: Story content -->
+  <div class="md:w-3/5 text-lg space-y-6" data-aos="flip-down" data-aos-delay="500">
+    <p class="font-semibold mb-4 text-blue-100">
+      Vault Bites was born not in kitchens of luxury, but in the shadows of fallout bunkers. In 2287, when the skies darkened and the earth cracked, hope was scarce — but hunger wasn’t.
+    </p>
+    <p>
+      Our first meals were crafted from salvaged supplies, nurtured by ingenuity. Survivors became chefs, and scraps became signatures. Today, every bite is a tribute to the resilience of those first days.
+    </p>
+    <p class="italic text-light-green">
+      We don’t just serve food. We serve a story — of how we started, and why we never stopped.
+    </p>
+  </div>
+</section>
+
+      <!-- Team Section -->
+     <section class="bg-black -mx-12 px-12 py-16 flex flex-col items-center rounded-lg text-[#fdfcf7] mb-12">
+  <h1 class="text-8xl font-extrabold text-gradient-blue mb-12" data-aos="fade-left" data-aos-delay="200">
+    Meet our Core
+  </h1>
+  <div class="flex flex-wrap gap-8 justify-around" data-aos="zoom-in-up" data-aos-delay="200">
+    <!-- Card Template Start -->
+    <!-- Warden Flint -->
+    <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
+      <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
+        <img src="img/undefined.jpeg" alt="Vault Chef" class="h-full w-full object-cover" />
+      </div>    
+      <span class="font-bold text-3xl mt-6">Warden Flint</span>
+      <span class="text-xl text-light-green mb-4">Founder & Mentor</span>
+      <div class="text-center space-y-2 text-[#fdfcf7] mt-2">
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Survival XP:</span>
+          <span class="text-[#fdfcf7] glow-soft">98</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Leadership:</span>
+          <span class="text-[#fdfcf7] glow-soft">95</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Recipe Count:</span>
+          <span class="text-[#fdfcf7] glow-soft">73</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Ash Garner -->
+    <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
+      <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
+        <img src="img/undefined (1).jpeg" alt="Scavenger Chef" class="h-full w-full object-cover" />
+      </div>
+      <span class="font-bold text-3xl mt-6">Ash Garner</span>
+      <span class="text-xl text-light-green mb-4">Wasteland Forager</span>
+      <div class="text-center space-y-2 text-[#fdfcf7] mt-2">
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Foraging Skill:</span>
+          <span class="text-[#fdfcf7] glow-soft">89</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Ingredient Memory:</span>
+          <span class="text-[#fdfcf7] glow-soft">92</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Vault Runs:</span>
+          <span class="text-[#fdfcf7] glow-soft">127</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Gear Son -->
+    <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
+      <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
+        <img src="img/undefined (2).jpeg" alt="Mechanic" class="h-full w-full object-cover" />
+      </div>
+      <span class="font-bold text-3xl mt-6">Gear Son</span>
+      <span class="text-xl text-light-green mb-4">Food Tech Engineer</span>
+      <div class="text-center space-y-2 text-[#fdfcf7] mt-2">
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Craft Level:</span>
+          <span class="text-[#fdfcf7] glow-soft">93</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Upgrades Built:</span>
+          <span class="text-[#fdfcf7] glow-soft">58</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Cyber Tools:</span>
+          <span class="text-[#fdfcf7] glow-soft">11</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Ivy Johann -->
+    <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
+      <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
+        <img src="img/undefined (3).jpeg" alt="Nutritionist" class="h-full w-full object-cover" />
+      </div>
+      <span class="font-bold text-3xl mt-6">Ivy Johann</span>
+      <span class="text-xl text-light-green mb-4">Nutrition Alchemist</span>
+      <div class="text-center space-y-2 text-[#fdfcf7] mt-2">
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Alchemy XP:</span>
+          <span class="text-[#fdfcf7] glow-soft">90</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Tonic Recipes:</span>
+          <span class="text-[#fdfcf7] glow-soft">34</span>
+        </p>
+        <p class="text-sm tracking-wider">
+          <span class="font-bold text-light-green glow">Healing Boost:</span>
+          <span class="text-[#fdfcf7] glow-soft">82%</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
+      <!-- Stats Section -->
+      <section class="flex flex-col gap-24 items-center max-w-[80rem] mb-32 text-[#fdfcf7]">
+        <h1 class="font-black text-7xl bg-gradient-to-r from-[#a7cdbd] to-[#164616] text-transparent bg-clip-text" data-aos="fade-down-right" data-aos-duration="300">
+      Our Acheivements
+    </h1>
+        <div class="flex flex-col md:flex-row gap-8 pt-24 justify-between border-solid border-t-8 border-[#a7cdbd] rounded-lg items-center" data-aos="fade-down-left" data-aos-duration="300">
+          <h1 class="font-extrabold text-7xl text-light-green">300+</h1>
+          <p class="w-3/5">Over 300 underground outposts now serve warm, irradiated-safe meals in former fallout shelters and Metro tunnels.</p>
+        </div>
+ 
+        <div class="flex flex-col md:flex-row gap-8 pt-24 justify-between border-solid border-t-8 border-[#a7cdbd] rounded-lg items-center" data-aos="fade-down-right" data-aos-duration="300" >
+          <h1 class="font-extrabold text-7xl text-light-green">5,000+</h1>
+          <p class="w-3/5">More than 5,000 survivors nourished daily with protein-packed, waste-free delicacies crafted from pre-war remains.</p>
+        </div>
+ 
+        <div class="flex flex-col md:flex-row gap-8 pt-24 justify-between border-solid border-t-8 border-[#a7cdbd] rounded-lg items-center" data-aos="fade-down-left" data-aos-duration="300">
+          <h1 class="font-extrabold text-7xl text-light-green">8M+</h1>
+          <p class="w-3/5">Over 8 million rations distributed in irradiated zones — each one a bite of hope, a taste of tomorrow.</p>
+        </div>
+      </section>
+    </main>
+{% endblock %}

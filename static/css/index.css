@@ -1,0 +1,82 @@
+.crt {
+    position: relative;
+    overflow: hidden;
+}
+
+.crt img {
+    object-fit: cover;
+    filter: contrast(1.2) brightness(0.9) saturate(1.2);
+    animation: crt-glitch 5s infinite linear alternate;
+}
+
+/* RGB Separation Effect */
+.crt img::before,
+.crt img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../img/home_poster.png'); /* Replace with your image path */
+    mix-blend-mode: screen;
+    animation: rgb-shift 0.1s infinite alternate;
+}
+
+.crt img::before {
+    filter: blur(2px) drop-shadow(2px 0 red);
+}
+
+.crt img::after {
+    filter: blur(2px) drop-shadow(-2px 0 blue);
+}
+
+/* Scanlines overlay */
+.crt::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 20;
+    mix-blend-mode: overlay;
+}
+
+/* Slight jittery animation */
+@keyframes crt-glitch {
+    0% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(-1px, 1px) scale(1.001); }
+    40% { transform: translate(1px, -1px) scale(0.999); }
+    60% { transform: translate(-1px, 0) scale(1.001); }
+    80% { transform: translate(1px, 1px) scale(0.999); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* RGB Shift Animation */
+@keyframes rgb-shift {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-2px, 0); }
+    100% { transform: translate(2px, 0); }
+}
+
+
+.text-grainy {
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    background-size: cover;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+
+  .burger {
+    background: radial-gradient(circle, rgba(0,255,0,0.4) 0%, rgba(0,0,0,1) 70%);
+    border-radius: 9999px; /* Optional: make a soft circle glow */
+    padding: 20px; /* Space around burger */
+}
+
+
+  
