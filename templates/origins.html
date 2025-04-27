@@ -53,7 +53,8 @@
 <section class="flex gap-4 mt-16 w-full justify-between items-start max-w-[80rem] flex-col md:flex-row-reverse">
   <!-- Heading and Arrow Container -->
   <div class="flex items-center gap-4" data-aos="fade-down-right" data-aos-delay="300">
-    <ion-icon name="arrow-up-outline" class="rotate-[-90deg] text-8xl text-[#164616]"></ion-icon>
+    <ion-icon name="arrow-down-outline" class=" rotate-45 text-8xl text-[#164616]"></ion-icon>
+
     <h1 class="font-black text-7xl text-gradient">
       Our Mission
     </h1>
@@ -105,7 +106,7 @@
     <!-- Warden Flint -->
     <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
       <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
-        <img src="img/undefined.jpeg" alt="Vault Chef" class="h-full w-full object-cover" />
+        <img src="{{ url_for('static', filename='img/undefined.jpeg') }}" alt="Vault Chef" class="h-full w-full object-cover" />
       </div>    
       <span class="font-bold text-3xl mt-6">Warden Flint</span>
       <span class="text-xl text-light-green mb-4">Founder & Mentor</span>
@@ -128,7 +129,8 @@
     <!-- Ash Garner -->
     <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
       <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
-        <img src="img/undefined (1).jpeg" alt="Scavenger Chef" class="h-full w-full object-cover" />
+        <img src="{{ url_for('static', filename='img/undefined (1).jpeg') }}" alt="Scavenger Chef" class="h-full w-full object-cover" />
+
       </div>
       <span class="font-bold text-3xl mt-6">Ash Garner</span>
       <span class="text-xl text-light-green mb-4">Wasteland Forager</span>
@@ -151,7 +153,7 @@
     <!-- Gear Son -->
     <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
       <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
-        <img src="img/undefined (2).jpeg" alt="Mechanic" class="h-full w-full object-cover" />
+        <img src="{{ url_for('static', filename='img/undefined (2).jpeg') }}" alt="Mechanic" class="h-full w-full object-cover" />
       </div>
       <span class="font-bold text-3xl mt-6">Gear Son</span>
       <span class="text-xl text-light-green mb-4">Food Tech Engineer</span>
@@ -174,7 +176,7 @@
     <!-- Ivy Johann -->
     <div class="h-[420px] w-[300px] bg-charcoal rounded-lg flex flex-col items-center p-6">
       <div class="h-32 w-32 bg-charcoal rounded-full overflow-hidden">
-        <img src="img/undefined (3).jpeg" alt="Nutritionist" class="h-full w-full object-cover" />
+        <img src="{{ url_for('static', filename='img/undefined (3).jpeg') }}" alt="Nutritionist" class="h-full w-full object-cover" />
       </div>
       <span class="font-bold text-3xl mt-6">Ivy Johann</span>
       <span class="text-xl text-light-green mb-4">Nutrition Alchemist</span>
