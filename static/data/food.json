@@ -48,12 +48,12 @@
     "description": "An electrifying lemonade charged with a hint of wild berry."
   },
   "7": {
-    "name": "Aurora Brew",
+    "name": "Nuka Cola",
     "price": 4.29,
     "image_url": "../static/img/menu/can.png",
     "category": "drink",
     "rating": 4.7,
-    "description": "A cosmic blend of cold brew coffee and radiant vanilla notes."
+    "description": "An intense and premium soft drink , blending bold flavor with a signature radioactive kick that defines post-apocalyptic luxury. "
   },
   "8": {
     "name": "Starfall Sundae",
