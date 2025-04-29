@@ -19,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- #favicon -->
+    <link rel="icon" type="image/png" href="../static/img/logo.png">
+
 
     <script>
       tailwind.config = {
@@ -45,41 +48,35 @@
         {% endblock %}
     </title>
 </head>
-<body class="bg-black text-gray-300 font-sans overflow-x-hidden">
-
-    <div id="loader">
-        <div class="loading-screen">
-            <div class="loading-text" id="loading-text">LOADING</div>
-            <div class="loading-bar">
-              <div class="loading-fill"></div>
-            </div>
-          </div>
-    </div>
+<body class="bg-black text-gray-300 font-sans overflow-x-hidden" style="font-family: 'Helvetica';">
 
     <header class="w-screen text-l glow flex items-center justify-between bg-transparent mt-4 block px-16">
       <a href="{{url_for('home')}}" class="flex items-center justify-center">
         <img src="../static/img/logo.png" alt="Logo" class="w-32 h-32 rounded-full hover:scale-105 transition-transform duration-100 ease-in-out">
       </a>
-      <nav class="max-w-4xl border border-light-green rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
+      <nav class="max-w-4xl border border-light-green border-[1px] rounded-xl overflow-hidden backdrop-blur-[10px] bg-black/40 nav">
         <ul class="flex justify-around p-4 border-b border-light-green text-light-green">
-        <li><a href="{{url_for('home')}}" class="px-8 py-2 block">HOME</a></li>
-        <li><a href="#" class=" px-8 py-2 block">MENU</a></li>
-        <li><a href="{{url_for('merch')}}" class=" px-8 py-2 block">MERCH</a></li>
-        <li><a href="{{url_for('origins')}}" class=" px-8 py-2 block">ORIGINS</a></li>
+          <li><a href="{{url_for('home')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">HOME</a></li>
+          <li><a href="{{url_for('menu')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MENU</a></li>
+          <li><a href="{{url_for('merch')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MERCH</a></li>
+          <li><a href="{{url_for('origins')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">ORIGINS</a></li>
         </ul>
       </nav>
-      <a href = "" class="hover:scale-105 w-32 h-32 flex items-center justify-center"><ion-icon name="cart-outline" class="text-5xl"></ion-icon> </a>
+      <a href = "{{url_for('cart')}}" class="hover:scale-105 w-32 h-32 flex items-center justify-center"><ion-icon name="cart-outline" class="text-5xl"></ion-icon> </a>
     </header>
 
-    <header class="w-full text-l  glow flex flex-col items-center justify-center nav-hidden fixed bg-transparent ">
-      <nav class="max-w-4xl border border-light-green rounded-xl overflow-hidden backdrop-blur-[10px] bg-transparent nav">
+    <header class="w-full text-l  glow flex items-center justify-around nav-hidden fixed bg-transparent ">
+      <div class="w-32"></div>
+      <nav class="max-w-4xl border border-light-green border-[1px] rounded-xl overflow-hidden backdrop-blur-[10px] bg-black/40 nav">
         <ul class="flex justify-around p-4 border-b border-light-green text-light-green">
-        <li><a href="{{url_for('home')}}" class="px-8 py-2 block">HOME</a></li>
-        <li><a href="#" class=" px-8 py-2 block">MENU</a></li>
-        <li><a href="{{url_for('merch')}}" class=" px-8 py-2 block">MERCH</a></li>
-        <li><a href="{{url_for('origins')}}" class=" px-8 py-2 block">ORIGINS</a></li>
+          <li><a href="{{url_for('home')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">HOME</a></li>
+          <li><a href="{{url_for('menu')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MENU</a></li>
+          <li><a href="{{url_for('merch')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MERCH</a></li>
+          <li><a href="{{url_for('origins')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">ORIGINS</a></li>
         </ul>
       </nav>
+      <a href = "{{url_for('cart')}}" class="hover:scale-105 w-32 h-32 flex items-center justify-center"><ion-icon name="cart-outline" class="text-5xl"></ion-icon> </a>
+    </header>
     </header>
 
     <div id="main-content">
@@ -98,48 +95,6 @@
       © 2087 FoodOut 4. Eat like it's the end of the world™.
   </div>
 </footer>
-
-<style>
-.glitch-hover {
-  position: relative;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.glitch-hover::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  top: 0;
-  color: #a7cdbd;
-  background: transparent;
-  overflow: hidden;
-  width: 0;
-  transition: width 0.3s ease;
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.glitch-hover:hover {
-  color: #a7cdbd;
-  animation: flicker 0.3s linear infinite alternate;
-}
-
-/* Slight flicker animation */
-@keyframes flicker {
-  0% { opacity: 1; }
-  50% { opacity: 0.4; }
-  100% { opacity: 1; }
-}
-
-/* Optional: make links feel less rigid */
-footer a {
-  font-family: monospace;
-  letter-spacing: 0.05em;
-  font-weight: 500;
-}
-</style>
-
 
     <script>
         AOS.init();

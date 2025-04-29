@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Menu{% endblock %}
+
+{% block content %}
+<style>
+    .image-vignette {
+        background: radial-gradient(circle, transparent 50%, black 95%),
+            linear-gradient(to bottom, black, transparent 10%),
+            linear-gradient(to top, black, transparent 10%);
+        background-blend-mode: lighten;
+    }
+
+    .food-vignette {
+        background: radial-gradient(circle, transparent 50%, black 95%);
+        background-blend-mode: lighten;
+    }
+</style>
+
+<main>
+    <div class="flex items-center justify-center mx-20 my-12 h-[80vh]">
+        <div class="flex-2 overflow-hidden h-full relative">
+            <div class="absolute inset-0 image-vignette"></div>
+            <img src="../static/img/burger_package.png" alt="" class="object-cover w-full h-full rounded-2xl shadow-lg">
+        </div>
+        <div class="flex-1 flex flex-col justify-center items-center text-center">
+            <h1 class="text-4xl font-bold mb-4 uppercase" style="font-family: 'Integral';">
+                Menu
+            </h1>
+            <p class="text-lg mb-4 text-gray-300 italic text-light-green">Dive into our mouth-watering menu creations.</p>
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center mx-20 my-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {% for item in food_items %}
+            <div class="min-h-[500px] bg-black/40 border border-lemon-yellow rounded-lg p-4 shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out">
+                <div class="w-full aspect-square overflow-hidden rounded-t-lg mb-4 relative">
+                    <div class="absolute inset-0 food-vignette"></div>
+                    <img src="{{ item.image_url }}" alt="{{ item.name }}" class="w-full h-full object-cover">
+                </div>
+                <h3 class="text-xl font-semibold text-light-green mb-3">{{ item.name }}</h3>
+                <p class="text-gray-300">{{ item.description }}</p>
+                <div class="flex items-center justify-between mt-2">
+                    <p class="text-lg font-bold text-light-green">${{ item.price }}</p>
+                    <span>
+                        {{ item.rating }} <ion-icon name="star" class="text-yellow-400"></ion-icon>
+                    </span>
+                </div>
+
+                <!-- Add to Cart / Quantity Buttons -->
+                <div class="flex items-center justify-center mt-4">
+                    <div id="controls-{{ item.id }}">
+                        <button onclick="addFood({{ item.id }})"
+                            class="bg-lemon-yellow hover:bg-yellow-400 text-charcoal font-bold py-2 px-4 rounded">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+
+<!-- Scripts to handle Add/Remove -->
+<script>
+    let foodCart = {{ session.get('cart', {}).get('food_cart', {}) | tojson }};
+
+    function updateControls(itemId) {
+        const container = document.getElementById(`controls-${itemId}`);
+        const quantity = foodCart[itemId] || 0;
+
+        if (quantity === 0) {
+            container.innerHTML = `
+                <button onclick="addFood(${itemId})"
+                    class="bg-lemon-yellow hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded">
+                    Add to Cart
+                </button>
+            `;
+        } else {
+            container.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <button onclick="removeFood(${itemId})"
+                        class="hover:scale-105 text-white font-bold py-1 px-3 rounded-full text-lg">
+                        <ion-icon name="remove"></ion-icon>                       
+                        
+                    </button>
+                    <span class="text-white font-bold">${quantity}</span>
+                    <button onclick="addFood(${itemId})"
+                        class="hover:scale-105 text-white font-bold py-1 px-3 rounded-full text-lg">
+                      <ion-icon name="add"></ion-icon>                       
+                        
+                    </button>
+                </div>
+            `;
+        }
+    }
+
+    function addFood(itemId) {
+        fetch(`/food/add/${itemId}`, {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            foodCart = data.food_cart;
+            updateControls(itemId);
+        });
+    }
+
+    function removeFood(itemId) {
+        fetch(`/food/remove/${itemId}`, {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(data => {
+            foodCart = data.food_cart;
+            updateControls(itemId);
+        });
+    }
+
+    // Initialize all controls on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        for (const itemId of Object.keys(foodCart)) {
+            updateControls(itemId);
+        }
+    });
+</script>
+{% endblock %}

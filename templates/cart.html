@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+
+{% block title %}
+Shopping Cart
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .active {
+        border: 2px solid #e3e3e3;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+
+<main class="bg-black text-white p-8 font-sans">
+
+    <!-- Toggle Buttons -->
+    <div class="flex justify-center space-x-4 mb-12 py-4">
+        <button id="food-btn" class="px-6 py-2 bg-dark-green text-white rounded hover:bg-green-600 font-bold uppercase active">Food</button>
+        <button id="merch-btn" class="px-6 py-2 bg-charcoal text-white rounded hover:bg-blue-600 font-bold uppercase">Merch</button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Cart Items -->
+        <div class="md:col-span-2 space-y-8">
+
+            <!-- Merch Cart -->
+            
+
+            <!-- Food Cart -->
+            <div id="food-cart" class="">
+                {% if food_items %}
+                    {% for item in food_items %}
+                    <div id="food-item-{{ item.id }}" class="food-item flex items-start justify-between border-t border-gray-700 pt-6" data-id="{{ item.id }}" data-price="{{ item.price }}">
+                        <div>
+                            <h2 class="text-xl font-extrabold uppercase">{{ item.name }}</h2>
+                            <p class="text-lg mt-2 text-gray-300">${{ item.price }}</p>
+                            <div class="flex items-center space-x-4 mt-4">
+                                <button class="text-2xl font-bold quantity-btn" data-action="remove" data-id="{{ item.id }}" data-type="food">-</button>
+                                <span class="text-xl" id="food-quantity-{{ item.id }}">{{ item.quantity }}</span>
+                                <button class="text-2xl font-bold quantity-btn" data-action="add" data-id="{{ item.id }}" data-type="food">+</button>
+                            </div>
+                        </div>
+                        <img src="{{ item.image_url }}" alt="{{ item.name }}" class="w-32 h-32 object-contain rounded-xl shadow-lg">
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center text-gray-500">No food items in cart.</p>
+                {% endif %}
+            </div>
+
+            <div id="merch-cart" class="hidden">
+                {% if merch_items %}
+                    {% for item in merch_items %}
+                    <div id="merch-item-{{ item.id }}" class="merch-item flex items-start justify-between border-t border-gray-700 pt-6" data-id="{{ item.id }}" data-price="{{ item.price }}">
+                        <div>
+                            <h2 class="text-xl font-extrabold uppercase">{{ item.name }}</h2>
+                            <p class="text-lg mt-2 text-gray-300">${{ item.price }}</p>
+                            <div class="flex items-center space-x-4 mt-4">
+                                <button class="text-2xl font-bold quantity-btn" data-action="remove" data-id="{{ item.id }}" data-type="merch">-</button>
+                                <span class="text-xl" id="merch-quantity-{{ item.id }}">{{ item.quantity }}</span>
+                                <button class="text-2xl font-bold quantity-btn" data-action="add" data-id="{{ item.id }}" data-type="merch">+</button>
+                            </div>
+                        </div>
+                        <img src="{{ item.image_url }}" alt="{{ item.name }}" class="w-32 h-32 object-contain rounded-xl shadow-lg">
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center text-gray-500">No merchandise items in cart.</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <!-- Order Summary -->
+        <div class="border border-gray-700 p-6 h-fit">
+            <h2 class="text-2xl font-extrabold uppercase mb-6">Order Summary</h2>
+
+            <!-- Merch Order Summary -->
+            <div id="merch-summary" class="space-y-4 text-lg hidden">
+                <div class="flex justify-between">
+                    <span class="font-bold">Subtotal (Merch)</span>
+                    <span id="merch-subtotal">${{ merch_subtotal }}</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold">Taxes & Charges</span>
+                    <span id="merch-taxes">${{ merch_taxes }}</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold">Shipping</span>
+                    <span id="merch-shipping">${{ merch_shipping }}</span>
+                </div>
+                <div class="flex justify-between font-extrabold border-t border-gray-700 pt-4 mt-4">
+                    <span>Total</span>
+                    <span id="merch-total">${{ merch_total }}</span>
+                </div>
+            </div>
+
+            <!-- Food Order Summary -->
+            <div id="food-summary" class="space-y-4 text-lg ">
+                <div class="flex justify-between">
+                    <span class="font-bold">Subtotal (Food)</span>
+                    <span id="food-subtotal">${{ food_subtotal }}</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold">Taxes & Charges</span>
+                    <span id="food-taxes">${{ food_taxes }}</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="font-bold">Delivery</span>
+                    <span id="food-shipping">${{ food_shipping }}</span>
+                </div>
+                <div class="flex justify-between font-extrabold border-t border-gray-700 pt-4 mt-4">
+                    <span>Total</span>
+                    <span id="food-total">${{ food_total }}</span>
+                </div>
+            </div>
+
+            <button class="w-full mt-6 bg-white text-black py-3 font-bold uppercase hover:bg-gray-300 transition" id="checkout-btn">
+                Check Out
+            </button>
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- Updated JavaScript -->
+<script>
+    const merchBtn = document.getElementById('merch-btn');
+    const foodBtn = document.getElementById('food-btn');
+    const merchCart = document.getElementById('merch-cart');
+    const foodCart = document.getElementById('food-cart');
+    const merchSummary = document.getElementById('merch-summary');
+    const foodSummary = document.getElementById('food-summary');
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    let currentCartType = 'food_cart'; // Default
+
+    merchBtn.addEventListener('click', () => {
+        merchCart.classList.remove('hidden');
+        foodCart.classList.add('hidden');
+        merchSummary.classList.remove('hidden');
+        foodSummary.classList.add('hidden');
+        merchBtn.classList.add('active');
+        foodBtn.classList.remove('active');
+        currentCartType = 'merch_cart';
+    });
+
+    foodBtn.addEventListener('click', () => {
+        foodCart.classList.remove('hidden');
+        merchCart.classList.add('hidden');
+        foodSummary.classList.remove('hidden');
+        merchSummary.classList.add('hidden');
+        foodBtn.classList.add('active');
+        merchBtn.classList.remove('active');
+        currentCartType = 'food_cart';
+    });
+
+    function updateTotals(section, items) {
+        let subtotal = 0;
+        items.forEach(item => {
+            subtotal += item.price * item.quantity;
+        });
+        const taxRate = 0.18;
+        const shippingCost = 4.99;
+        const taxes = +(subtotal * taxRate).toFixed(2);
+        const shipping = items.length > 0 ? shippingCost : 0;
+        const total = +(subtotal + taxes + shipping).toFixed(2);
+
+        document.getElementById(`${section}-subtotal`).innerText = `$${subtotal.toFixed(2)}`;
+        document.getElementById(`${section}-taxes`).innerText = `$${taxes}`;
+        document.getElementById(`${section}-shipping`).innerText = `$${shipping}`;
+        document.getElementById(`${section}-total`).innerText = `$${total}`;
+    }
+
+    document.querySelectorAll('.quantity-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            const button = e.target;
+            const action = button.dataset.action; // 'add' or 'remove'
+            const id = button.dataset.id;
+            const type = button.dataset.type; // 'food' or 'merch'
+
+            const url = `/${type}/${action}/${id}`;
+
+            const response = await fetch(url, { method: 'POST' });
+            const data = await response.json();
+
+            if (data.success) {
+                const quantityElement = document.getElementById(`${type}-quantity-${id}`);
+                let newQuantity = parseInt(quantityElement.innerText);
+
+                if (action === 'add') {
+                    newQuantity += 1;
+                } else if (action === 'remove') {
+                    newQuantity -= 1;
+                }
+
+                if (newQuantity <= 0) {
+                    const itemDiv = document.getElementById(`${type}-item-${id}`);
+                    if (itemDiv) itemDiv.remove();
+                } else {
+                    quantityElement.innerText = newQuantity;
+                }
+
+                const updatedItems = [];
+                document.querySelectorAll(`.${type}-item`).forEach(item => {
+                    const itemId = item.dataset.id;
+                    const itemPrice = parseFloat(item.dataset.price);
+                    const itemQuantity = parseInt(document.getElementById(`${type}-quantity-${itemId}`).innerText);
+                    updatedItems.push({ price: itemPrice, quantity: itemQuantity });
+                });
+
+                updateTotals(type, updatedItems);
+            }
+        });
+    });
+
+    // 🛒 Handle checkout
+    checkoutBtn.addEventListener('click', async () => {
+        // Collect current cart items
+        const cartItems = {};
+        const selector = currentCartType === 'food_cart' ? '.food-item' : '.merch-item';
+        document.querySelectorAll(selector).forEach(item => {
+            const itemId = item.dataset.id;
+            const quantity = parseInt(document.getElementById(`${currentCartType.startsWith('food') ? 'food' : 'merch'}-quantity-${itemId}`).innerText);
+            if (quantity > 0) {
+                cartItems[itemId] = quantity;
+            }
+        });
+
+        if (Object.keys(cartItems).length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        try {
+            const response = await fetch('/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cart_type: currentCartType,
+                    cart: cartItems,
+                }),
+            });
+
+            const data = await response.json();
+            if (data.url) {
+                window.location.href = data.url; // Redirect to Stripe Checkout
+            } else {
+                alert(data.error || "Something went wrong!");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred. Please try again.");
+        }
+    });
+</script>
+
+{% endblock %}

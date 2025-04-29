@@ -8,6 +8,11 @@
 }
 
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 body::before {
   content: "";
   position: fixed;
@@ -21,6 +26,10 @@ body::before {
   pointer-events: none;
   z-index: 0; /* keep it behind interactive content */
   mix-blend-mode: screen; /* makes whites blend and blacks invisible */
+}
+
+div {
+  z-index: 1;
 }
 
 
@@ -40,9 +49,74 @@ body::before {
 }
 
 
+.crt {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt img {
+  object-fit: cover;
+  filter: contrast(1.2) brightness(0.9) saturate(1.2);
+  animation: crt-glitch 5s infinite linear alternate;
+}
+
+/* RGB Separation Effect */
+.crt img::before,
+.crt img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../img/home_poster.png'); /* Replace with your image path */
+  mix-blend-mode: screen;
+  animation: rgb-shift 0.1s infinite alternate;
+}
+
+.crt img::before {
+  filter: blur(2px) drop-shadow(2px 0 red);
+}
+
+.crt img::after {
+  filter: blur(2px) drop-shadow(-2px 0 blue);
+}
+
+/* Scanlines overlay */
+.crt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0px,
+      rgba(0, 0, 0, 0.1) 1px,
+      transparent 1px,
+      transparent 4px
+  );
+  pointer-events: none;
+  z-index: 20;
+  mix-blend-mode: overlay;
+}
+
+/* Slight jittery animation */
+@keyframes crt-glitch {
+  0% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(-1px, 1px) scale(1.001); }
+  40% { transform: translate(1px, -1px) scale(0.999); }
+  60% { transform: translate(-1px, 0) scale(1.001); }
+  80% { transform: translate(1px, 1px) scale(0.999); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* RGB Shift Animation */
+@keyframes rgb-shift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, 0); }
+  100% { transform: translate(2px, 0); }
+}
+
+
 
 .glow {
-  text-shadow: 0 0 3px var(--light-green), 0 0 5px var(--light-green);
+  text-shadow: 0 0 3px var(--light-green), 0 0 7px white;
 }
 
 
@@ -55,14 +129,48 @@ body::before {
   transparent 2px
 );
 background-size: 100% 2px;
-
-
 }
 
-nav a:hover {
-  text-shadow: 0 0 5px var(--dark-green), 0 0 10px var(--dark-green);
-  transform: translateY(-2px);
-  transition: all 0.2s;
+.glitch-hover {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: #a7cdbd;
+  background: transparent;
+  overflow: hidden;
+  width: 0;
+  transition: width 0.3s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.glitch-hover:hover {
+  color: #a7cdbd;
+  animation: flicker 0.3s linear infinite alternate;
+}
+
+/* Slight flicker animation */
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Optional: make links feel less rigid */
+footer a {
+  font-family: monospace;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+nav a {
+  text-shadow: 0 0 5px #00ffb2, 0 0 10px #00ffb2;
 }
 
 

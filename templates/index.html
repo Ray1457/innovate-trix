@@ -45,8 +45,8 @@
 
 
     <div class="flex items-center justify-center mt-16 mx-16">
-        <div class="flex-1">
-            <img src="../static/img/plant.png" alt="" class="burger">
+        <div class="flex-1 burger flex items-center justify-center">
+            <img src="../static/img/plant.png" alt="" class="">
         </div>
 
         <div class="flex-1 text-center flex flex-col items-center justify-center">
@@ -54,9 +54,9 @@
                 FRESH FOREVER
             </span>
             <p class="max-w-prose mt-4 text-teal-300 glitch-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nibh ex, ullamcorper vitae molestie a, tempus at massa. Sed suscipit egestas libero. Aliquam sodales neque eget neque viverra porttitor. Curabitur et eros purus. Nullam sed tortor aliquet, porttitor lectus vitae, facilisis quam. Duis pretium nulla sit amet turpis efficitur tempor placerat nec erat.
+                In a world where the past is gone and survival is all that matters, Freshness offers a glimmer of hope. With Vault-Tec’s advanced preservation technology, our meals stay fresh, even in the harshest wasteland conditions. Whether you’re navigating irradiated zones or scavenging for resources, our initiative ensures that each bite is nutrient-rich, safe, and ready to fuel your next move. As the world crumbles, don’t let hunger be your enemy—stay strong, stay fresh, and keep pushing forward.
             </p>
-            <a href="" class="mt-4 px-4 py-2 bg-dark-green rounded-lg text-gray-200 hover:scale-102 hover:-translate-y-[1px] hover:translate-x-[1px] ">
+            <a href="{{url_for('origins')}}" class="mt-4 px-4 py-2 bg-dark-green rounded-lg text-gray-200 hover:scale-102 hover:-translate-y-[1px] hover:translate-x-[1px] ">
                 Learn More
             </a>
         </div>
@@ -81,7 +81,7 @@
                 <span class="pb-4">
                     A double beef patty burger stacked with cheddar, grilled onions and atomic sauce. Served with Vault-Tec fries - built for true wasteland survivors.
                 </span>
-                <a href="" class="px-4 py-2 bg-charcoal rounded-lg text-gray-300 ">
+                <a href="{{url_for('menu')}}" class="px-4 py-2 bg-charcoal rounded-lg text-gray-300 ">
                     ORDER NOW
                 </a>
             </div>

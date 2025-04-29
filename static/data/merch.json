@@ -1,0 +1,13 @@
+{
+    "1": {
+      "name": "FO4R Hoodie",
+      "image_url": "../static/img/hoodie.png",
+      "price": 39.99
+    },
+    "2": {
+      "name": "FO4R Cap",
+      "image_url": "../static/img/cap2.png",
+      "price": 19.99
+    }
+}
+  

@@ -1,0 +1,82 @@
+{
+  "1": {
+    "name": "Wasteland Whopper",
+    "price": 9.99,
+    "image_url": "../static/img/menu/atomic burger.png",
+    "category": "snack",
+    "rating": 4.7,
+    "description": "A fiery double-patty burger with molten cheese and secret bunker sauce."
+  },
+  "2": {
+    "name": "Skyfire Chicken Wrap",
+    "price": 8.49,
+    "image_url": "../static/img/menu/chicken wrap.jpg",
+    "category": "snack",
+    "rating": 4.5,
+    "description": "Grilled chicken wrapped with zesty greens and a tangy blast of flavor."
+  },
+  "3": {
+    "name": "Metro Melt Sandwich",
+    "price": 10.99,
+    "image_url": "../static/img/menu/sandwich.jpg",
+    "category": "snack",
+    "rating": 4.6,
+    "description": "Sizzling roast beef, caramelized onions, and cheddar melted to perfection."
+  },
+  "4": {
+    "name": "Sunburst Veggie Bowl",
+    "price": 7.99,
+    "image_url": "../static/img/menu/veggie bowl.jpg",
+    "category": "snack",
+    "rating": 4.4,
+    "description": "A fresh, vibrant medley of greens, grains, and solar-kissed veggies."
+  },
+  "5": {
+    "name": "Ironclad Fries",
+    "price": 4.99,
+    "image_url": "../static/img/menu/fries.jpg",
+    "category": "snack",
+    "rating": 4.3,
+    "description": "Armor-crisp fries seasoned with bunker-forged spices and sea salt."
+  },
+  "6": {
+    "name": "Neon Rush Lemonade",
+    "price": 3.49,
+    "image_url": "../static/img/menu/lemonade.jpg",
+    "category": "drink",
+    "rating": 4.6,
+    "description": "An electrifying lemonade charged with a hint of wild berry."
+  },
+  "7": {
+    "name": "Aurora Brew",
+    "price": 4.29,
+    "image_url": "../static/img/menu/can.png",
+    "category": "drink",
+    "rating": 4.7,
+    "description": "A cosmic blend of cold brew coffee and radiant vanilla notes."
+  },
+  "8": {
+    "name": "Starfall Sundae",
+    "price": 5.49,
+    "image_url": "../static/img/menu/sundae.jpg",
+    "category": "dessert",
+    "rating": 4.8,
+    "description": "Vanilla ice cream, meteor fudge drizzle, and stardust sprinkles."
+  },
+  "9": {
+    "name": "Velvet Eclipse Cake",
+    "price": 6.99,
+    "image_url": "../static/img/menu/cake.jpg",
+    "category": "dessert",
+    "rating": 4.9,
+    "description": "Rich velvet cake cloaked in a dark chocolate cosmic glaze."
+  },
+  "10": {
+    "name": "Blastbite Nachos",
+    "price": 6.99,
+    "image_url": "../static/img/menu/nachos.jpg",
+    "category": "snack",
+    "rating": 4.5,
+    "description": "Tortilla chips piled high with molten cheese, spicy beans, and fusion salsa."
+  }
+}
