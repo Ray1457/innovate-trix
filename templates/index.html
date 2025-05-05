@@ -27,74 +27,75 @@
 </style>
 
 <main>
-    <div class="flex items-center justify-end h-[80vh] mt-8 relative">
+    <!-- Hero Section -->
+    <div class="flex items-center justify-end h-[80vh] mt-8 relative" data-aos="fade-left" data-aos-duration="1200">
         <!-- Text Container -->
-        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 px-8">
-            <span class="text-5xl text-left  text-gray-300 shadow-xl " style="font-family: 'Rubik Distressed';">
+        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 px-8" data-aos="fade-right" data-aos-delay="300">
+            <span class="text-5xl text-left text-gray-300 shadow-xl" style="font-family: 'Rubik Distressed';">
                 EAT LIKE IT'S THE <br>
                 END OF THE WORLD
             </span>
         </div>
 
         <!-- Image Container -->
-        <div class="flex h-full w-full relative max-w-4/5 crt">
+        <div class="flex h-full w-full relative max-w-4/5 crt" data-aos="zoom-in" data-aos-delay="500">
             <div class="absolute inset-0 z-10 image-vignette"></div>
             <img src="../static/img/home_poster_full.png" alt="" class="object-cover h-full w-full rounded-lg" style="filter: blur(0.5px);">
         </div>
     </div>
 
-
-    <div class="flex items-center justify-center mt-16 mx-16">
-        <div class="flex-1 burger flex items-center justify-center">
+    <!-- Fresh Forever Section -->
+    <div class="flex items-center justify-center mt-16 mx-16" data-aos="fade-up" data-aos-duration="1000">
+        <div class="flex-1 burger flex items-center justify-center" data-aos="fade-right" data-aos-delay="200">
             <img src="../static/img/plant.png" alt="" class="">
         </div>
 
-        <div class="flex-1 text-center flex flex-col items-center justify-center">
+        <div class="flex-1 text-center flex flex-col items-center justify-center" data-aos="fade-left" data-aos-delay="400">
             <span class="text-5xl text-green-400 font-bold tracking-[8px] italic font-[Integral] shadow-xl">
                 FRESH FOREVER
             </span>
             <p class="max-w-prose mt-4 text-teal-300 glitch-text">
                 In a world where the past is gone and survival is all that matters, Freshness offers a glimmer of hope. With Vault-Tec’s advanced preservation technology, our meals stay fresh, even in the harshest wasteland conditions. Whether you’re navigating irradiated zones or scavenging for resources, our initiative ensures that each bite is nutrient-rich, safe, and ready to fuel your next move. As the world crumbles, don’t let hunger be your enemy—stay strong, stay fresh, and keep pushing forward.
             </p>
-            <a href="{{url_for('origins')}}" class="mt-4 px-4 py-2 bg-dark-green rounded-lg text-gray-200 hover:scale-102 hover:-translate-y-[1px] hover:translate-x-[1px] ">
+            <a href="{{url_for('origins')}}" class="mt-4 px-4 py-2 bg-dark-green rounded-lg text-gray-200 hover:scale-102 hover:-translate-y-[1px] hover:translate-x-[1px]">
                 Learn More
             </a>
         </div>
     </div>
 
-    <div class="mx-16 mt-16 crt relative">
-        <div class="absolute inset-0 z-10" style="background: radial-gradient(circle, transparent 60% , black 90%);"></div>
-        <img src="../static/img/burger2_full.png" alt="" class="object-cover max-w-[35vw] mix-blend-screen mx-auto rounded-[150px] image-vignette  " style="filter : blur(0.5px);">
-            <span class="text-lemon-yellow absolute left-1/2 top-1/2 transform -translate-y-[80%] translate-x-[80%] z-20 text-5xl text-left shadow-xl font-[Crostan-Bold] shadow-xl">
-                CHEF'S <br>
-                SPECIAL
+    <!-- Chef's Special Section -->
+    <div class="mx-16 mt-16 crt relative" data-aos="zoom-in-up" data-aos-duration="1200">
+        <div class="absolute inset-0 z-10" style="background: radial-gradient(circle, transparent 60%, black 90%);"></div>
+        <img src="../static/img/burger2_full.png" alt="" class="object-cover max-w-[35vw] mix-blend-screen mx-auto rounded-[150px] image-vignette" style="filter: blur(0.5px);">
+        <span class="text-lemon-yellow absolute left-1/2 top-1/2 transform -translate-y-[80%] translate-x-[80%] z-20 text-5xl text-left shadow-xl font-[Crostan-Bold]">
+            CHEF'S <br>
+            SPECIAL
+        </span>
+        <span class="text-gray-100 absolute left-1/2 top-1/2 transform -translate-y-[70%] -translate-x-[70%] z-20 text-8xl text-left shadow-xl tracking-[3px]" style="font-family: 'Helvetica Compressed';">
+            WASTELAND <br>
+            WHOPPER
+        </span>
+        <span class="text-lemon-yellow absolute left-1/2 top-1/2 transform translate-y-[20%] -translate-x-[110%] z-20 text-5xl text-right shadow-xl font-[Crostan-Bold]">
+            FEATURED <br>
+            TODAY
+        </span>
+        <div class="flex flex-col items-start gap-2 absolute left-1/2 top-1/2 transform translate-x-[40%] translate-y-[10%] z-20 text-l text-left shadow-xl max-w-[30ch] tracking-[2px]" style="font-family: 'Helvetica';">
+            <span class="pb-4">
+                A double beef patty burger stacked with cheddar, grilled onions and atomic sauce. Served with Vault-Tec fries - built for true wasteland survivors.
             </span>
-            <span class="text-gray-100 absolute left-1/2 top-1/2 transform -translate-y-[70%] -translate-x-[70%] z-20 text-8xl text-left shadow-xl shadow-xl tracking-[3px]" style="font-family: 'Helvetica Compressed';">
-                WASTELAND <br>
-                WHOPPER
-            </span>
-            <span class="text-lemon-yellow absolute left-1/2 top-1/2 transform translate-y-[20%] -translate-x-[110%] z-20 text-5xl text-right shadow-xl font-[Crostan-Bold] shadow-xl">
-                FEATURED <br>
-                TODAY
-            </span>
-            <div class="flex flex-col items-start gap-2 absolute left-1/2 top-1/2 transform translate-x-[40%] translate-y-[10%] z-20 text-l text-left  shadow-xl shadow-xl max-w-[30ch] tracking-[2px]" style="font-family: 'Helvetica';">
-                <span class="pb-4">
-                    A double beef patty burger stacked with cheddar, grilled onions and atomic sauce. Served with Vault-Tec fries - built for true wasteland survivors.
-                </span>
-                <a href="{{url_for('menu')}}" class="px-4 py-2 bg-charcoal rounded-lg text-gray-300 ">
-                    ORDER NOW
-                </a>
-            </div>
+            <a href="{{url_for('menu')}}" class="px-4 py-2 bg-charcoal rounded-lg text-gray-300">
+                ORDER NOW
+            </a>
+        </div>
     </div>
 
-    <div class="mt-16 flex flex-col items-center justify-center text-center">
+    <!-- Reviews Section -->
+    <div class="mt-16 flex flex-col items-center justify-center text-center" data-aos="fade-up" data-aos-duration="800">
         <h2 class="text-4xl font-bold text-gray-200 mb-8 tracking-[2px]">
             What Our Customers Say
         </h2>
-        <div class="reviews-container">
-            <div class="absolute inset-0 pointer-events-none w-[100vw] z-[100]" style="background-image: linear-gradient(to right, black 0%, black 5%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, black 95%, black 100%);
-
-            "></div>
+        <div class="reviews-container" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0 pointer-events-none w-[100vw] z-[100]" style="background-image: linear-gradient(to right, black 0%, black 5%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, black 95%, black 100%);"></div>
             <div class="wrapper">
                 <!-- Review 1 -->
                 <div class="bg-dark-green rounded-lg p-8 max-w-[100ch] shadow-lg flex-shrink-0">

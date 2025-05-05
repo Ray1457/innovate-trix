@@ -270,7 +270,7 @@ def checkout_success():
 
 @app.route("/cancel")
 def checkout_cancel():
-    return "Payment cancelled."
+    return render_template('cancel.html')
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

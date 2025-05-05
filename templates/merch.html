@@ -15,7 +15,7 @@
 
 <main>
     <div class="flex items-center justify-center h-[80vh] bg-black relative">
-        <div class="h-full w-full relative crt">
+        <div class="h-full w-full relative crt" data-aos="fade-in" data-aos-duration="500">
             <div class="absolute top-0 left-0 w-full h-full top-down-vignette z-10"></div>
             <img src="../static/img/merch hero.png" alt="" class="w-full h-full object-cover object-center" data-aos="zoom-in" data-aos-duration="350">
         </div>
@@ -30,8 +30,8 @@
         </div>
     </div>
 
-    <div class="flex items-center mx-20 gap-10 text-center mt-24">
-        <div class="flex flex-col items-center justify-center flex-2">
+    <div class="flex items-center mx-20 gap-10 text-center mt-24" data-aos="fade-up" data-aos-duration="600">
+        <div class="flex flex-col items-center justify-center flex-2" data-aos="zoom-in-up" data-aos-duration="600">
             <span class="text-5xl mb-4 font-bold uppercase" style="font-family: 'Integral';">
                 Stay Fresh. <br>
                 Stay Comfortable
@@ -43,7 +43,7 @@
                 GET YOURS NOW
             </a>
         </div>
-        <div class="flex-3 relative">
+        <div class="flex-3 relative" data-aos="fade-left" data-aos-duration="600">
             <div class="absolute inset-0 radial-grad z-20 rounded-[200px]"></div>
             <img src="../static/img/hoodie_mockup.png" alt="" class="object-cover rounded-[200px]">
         </div>
@@ -52,7 +52,8 @@
     <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mx-20 mt-16" id="products">
         
         <!-- Hoodie -->
-        <div class="group bg-gray-900 rounded-lg p-6 shadow-lg flex flex-col items-center transition-transform duration-300 transform hover:scale-105">
+        <div class="group bg-gray-900 rounded-lg p-6 shadow-lg flex flex-col items-center transition-transform duration-300 transform hover:scale-105"
+             data-aos="zoom-in-up" data-aos-delay="100">
             <div class="overflow-hidden w-40 h-40 mb-4">
                 <img src="../static/img/hoodie.png" alt="FO4R HOODIE"
                     class="w-full h-full object-cover rounded-md transition-transform duration-500 ease-in-out group-hover:scale-107 group-hover:-translate-y-1">
@@ -68,7 +69,8 @@
         </div>
 
         <!-- Cap -->
-        <div class="group bg-gray-900 rounded-lg p-6 shadow-lg flex flex-col items-center transition-transform duration-300 transform hover:scale-105 min-h-[450px]">
+        <div class="group bg-gray-900 rounded-lg p-6 shadow-lg flex flex-col items-center transition-transform duration-300 transform hover:scale-105 min-h-[450px]"
+             data-aos="zoom-in-up" data-aos-delay="200">
             <div class="overflow-hidden w-40 h-40 mb-4">
                 <img src="../static/img/cap2.png" alt="Cap"
                     class="w-full h-full object-cover rounded-md transition-transform duration-500 ease-in-out group-hover:scale-107 group-hover:-translate-y-1">
@@ -86,7 +88,8 @@
         </div>
 
         <!-- Coming Soon -->
-        <div class="group bg-gray-800 rounded-lg p-6 shadow-lg flex flex-col items-center opacity-75 transition-transform duration-300 transform hover:scale-105">
+        <div class="group bg-gray-800 rounded-lg p-6 shadow-lg flex flex-col items-center opacity-75 transition-transform duration-300 transform hover:scale-105"
+             data-aos="zoom-in-up" data-aos-delay="300">
             <div class="overflow-hidden w-40 h-40 bg-gray-700 rounded-md flex items-center justify-center mb-4">
                 <span class="text-gray-500 text-md transition-transform duration-500 ease-in-out group-hover:scale-107 group-hover:-translate-y-1">
                     Coming Soon
@@ -100,7 +103,8 @@
         </div>
       
         <!-- Coming Soon 2 -->
-        <div class="group bg-gray-800 rounded-lg p-6 shadow-lg flex flex-col items-center opacity-75 transition-transform duration-300 transform hover:scale-105 ">
+        <div class="group bg-gray-800 rounded-lg p-6 shadow-lg flex flex-col items-center opacity-75 transition-transform duration-300 transform hover:scale-105"
+             data-aos="zoom-in-up" data-aos-delay="400">
             <div class="overflow-hidden w-40 h-40 bg-gray-700 rounded-md flex items-center justify-center mb-4">
                 <span class="text-gray-500 text-sm transition-transform duration-500 ease-in-out group-hover:scale-107 group-hover:-translate-y-1">
                     Coming Soon
@@ -115,6 +119,7 @@
 
     </div>
 </main>
+
 
 <script>
     let merchCart = {{ session.get('cart', {}).get('merch_cart', {}) | tojson }};

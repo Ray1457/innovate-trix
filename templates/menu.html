@@ -28,49 +28,58 @@
     }
 </style>
 
-<!-- <div class="flex-2 overflow-hidden h-full relative">
-    <div class="absolute inset-0 image-vignette"></div>
-    <img src="../static/img/burger_package.png" alt="" class="object-cover w-full h-full rounded-2xl shadow-lg">
-</div> -->
+
 
 
 
 <main>
-    <div class="flex items-center justify-center mx-20 my-12 h-[80vh]">
-        <div class="w-1/4 overflow-hidden h-full relative">
+    <div class="flex items-center justify-center mx-20 my-12 h-[80vh]" data-aos="fade-up">
+        <div class="w-[33.33%] aspect-[] overflow-hidden relative" data-aos="fade-right" data-aos-delay="200">
+
             <!-- Slides container -->
             <div class="absolute inset-0 image-vignette"></div>
             <div id="carousel" class="flex transition-transform duration-500 h-full" style="transform: translateX(0%)">
-              <img src="../static/img/whopper.png" class="w-full " alt="Slide 1">
-              <img src="../static/img/meltdown mac.png" class=" w-full" alt="Slide 2">
-              <img src="../static/img/end dog.png" class="w-full " alt="Slide 3">
+                <img src="../static/img/whopper.png" class="w-full h-full object-cover object-center" alt="Slide 1" data-aos="zoom-in" data-aos-delay="400">
+                <img src="../static/img/meltdown mac.png" class="w-full h-full object-cover object-center" alt="Slide 2" data-aos="zoom-in" data-aos-delay="600">
+                <img src="../static/img/end dog.png" class="w-full h-full object-cover object-center" alt="Slide 3" data-aos="zoom-in" data-aos-delay="800">
             </div>
           
             <!-- Arrows -->
-            <button id="prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-r hover:bg-black/60 z-10">
+            <button id="prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-r hover:bg-black/60 z-10" data-aos="fade-right" data-aos-delay="500">
               &#10094;
             </button>
-            <button id="next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-l hover:bg-black/60 z-10">
+            <button id="next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-l hover:bg-black/60 z-10" data-aos="fade-left" data-aos-delay="500">
               &#10095;
             </button>
           
             <!-- Dots -->
-            <div class="absolute bottom-3 w-full flex justify-center space-x-2">
+            <div class="absolute bottom-3 w-full flex justify-center space-x-2" data-aos="fade-up" data-aos-delay="900">
               <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="0"></button>
               <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="1"></button>
               <button class="dot w-3 h-3 bg-white rounded-full opacity-50 hover:opacity-100" data-index="2"></button>
             </div>
           </div>
-        <div class="flex-1 flex flex-col justify-center items-center text-center">
-            <h1 class="text-4xl font-bold mb-4 uppercase" style="font-family: 'Integral';">
-                Menu
-            </h1>
-            <p class="text-lg mb-4 text-gray-300 italic text-light-green">Dive into our mouth-watering menu creations.</p>
-        </div>
+          <div class="flex-1 flex flex-col justify-center items-center text-center"
+          data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
+         <h1 class="text-4xl font-bold mb-4 uppercase" style="font-family: 'Integral';"
+             data-aos="zoom-in" data-aos-delay="200">
+             Menu
+         </h1>
+         <p class="text-lg mb-4 text-gray-300 italic text-light-green"
+            data-aos="fade-up" data-aos-delay="400">
+             Dive into our mouth-watering menu creations.
+         </p>
+         <p class="text-base text-gray-400 max-w-xl"
+            data-aos="fade-up" data-aos-delay="600">
+             From the legendary <span class="text-violet-400 font-semibold">Wasteland Whopper</span> to the fiery <span class="text-red-400 font-semibold">Meltdown Mac</span>,
+             and the refreshing <span class="text-blue-400 font-semibold">Nuka Cola</span> — our post-apocalyptic flavors are crafted to blow your mind.
+         </p>
+     </div>
+     
     </div>
 
 
-    <div class="flex flex-wrap justify-center gap-4 mb-8">
+    <div class="flex flex-wrap justify-center gap-4 mb-8" data-aos="fade-up" data-aos-delay="200">
         <button data-category="all" onclick="filterCategory('all')" class="px-4 py-2 bg-lemon-yellow text-charcoal font-bold rounded hover:bg-yellow-400 active">All</button>
         <button data-category="specials" onclick="filterCategory('specials')" class="px-4 py-2 bg-lemon-yellow text-charcoal font-bold rounded hover:bg-yellow-400">Specials</button>
         {% for category in categories %}
@@ -81,11 +90,11 @@
     </div>
     
 
-    <div class="flex flex-col items-center justify-center mx-20 my-12">
+    <div class="flex flex-col items-center justify-center mx-20 my-12" data-aos="fade-up">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {% for item in food_items %}
-            <div class="min-h-[500px] bg-black/40 flex flex-col border border-lemon-yellow rounded-lg p-4 shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out {{ item.category }} {% if item.special %}specials{% endif %}">
-                <div class="w-full aspect-square overflow-hidden rounded-t-lg mb-4 relative flex-2">
+            <div class="min-h-[500px] bg-black/40 flex flex-col border border-lemon-yellow rounded-lg p-4 shadow-lg hover:scale-105 transition-transform duration-300 ease-in-out {{ item.category }} {% if item.special %}specials{% endif %}" data-aos="zoom-in" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="w-full aspect-square overflow-hidden rounded-t-lg mb-4 relative flex-2" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 50 }}">
                     <div class="absolute inset-0 food-vignette"></div>
                     <img src="{{ item.image_url }}" alt="{{ item.name }}" class="w-full h-full object-cover">
                 </div>
@@ -117,6 +126,9 @@
         </div>
     </div>
 </main>
+
+
+
 
 <!-- Scripts to handle Add/Remove -->
 <script>
