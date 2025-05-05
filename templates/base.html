@@ -65,18 +65,19 @@
       <a href = "{{url_for('cart')}}" class="hover:scale-105 w-32 h-32 flex items-center justify-center"><ion-icon name="cart-outline" class="text-5xl"></ion-icon> </a>
     </header>
 
-    <header class="w-full text-l  glow flex items-center justify-around nav-hidden fixed bg-transparent ">
-      <div class="w-32"></div>
-      <nav class="max-w-4xl border border-light-green border-[1px] rounded-xl overflow-hidden backdrop-blur-[10px] bg-black/40 nav">
-        <ul class="flex justify-around p-4 border-b border-light-green text-light-green">
-          <li><a href="{{url_for('home')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">HOME</a></li>
-          <li><a href="{{url_for('menu')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MENU</a></li>
-          <li><a href="{{url_for('merch')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MERCH</a></li>
-          <li><a href="{{url_for('origins')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">ORIGINS</a></li>
-        </ul>
-      </nav>
-      <a href = "{{url_for('cart')}}" class="hover:scale-105 w-32 h-32 flex items-center justify-center"><ion-icon name="cart-outline" class="text-5xl"></ion-icon> </a>
-    </header>
+    <header class="w-full text-l glow flex items-center justify-between nav-hidden fixed bg-transparent px-16">
+        <div class="w-32 "></div>
+        <nav class="max-w-4xl border border-light-green border-[1px] rounded-xl overflow-hidden backdrop-blur-[10px] bg-black/40 nav">
+            <ul class="flex justify-around p-4 border-b border-light-green text-light-green">
+                <li><a href="{{url_for('home')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">HOME</a></li>
+                <li><a href="{{url_for('menu')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MENU</a></li>
+                <li><a href="{{url_for('merch')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">MERCH</a></li>
+                <li><a href="{{url_for('origins')}}" class="px-8 py-2 block hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">ORIGINS</a></li>
+            </ul>
+        </nav>
+        <a href="{{url_for('cart')}}" class="hover:scale-105 w-32 flex items-center justify-center">
+            <ion-icon name="cart-outline" class="text-5xl"></ion-icon>
+        </a>
     </header>
 
     <div id="main-content">

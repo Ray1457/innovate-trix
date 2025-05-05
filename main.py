@@ -10,6 +10,7 @@ with open('static/data/food.json') as f:
     food_data = json.load(f)
 
 food_items = []
+categories = set()
 for (key, item) in food_data.items():
     food_items.append({
         'id': key,
@@ -17,8 +18,18 @@ for (key, item) in food_data.items():
         'description': item['description'],
         'price': item['price'],
         'image_url': item['image_url'],
-        'rating': item['rating']
+        'rating': item['rating'],
+        'category': item['category'],
+        'special': item['special']
     })
+    categories.add(item['category'])
+categories = list(categories)
+
+food_items = sorted(
+    food_items,
+    key=lambda x: (not x['special'], x['name'].lower())
+)
+
 
 
 merch_items = []
@@ -56,7 +67,7 @@ def merch():
 
 @app.route('/menu')
 def menu():
-    return render_template('menu.html', food_items=food_items)
+    return render_template('menu.html', food_items=food_items, categories=categories)
 
 
 @app.route('/cart')
@@ -262,4 +273,5 @@ def checkout_cancel():
     return "Payment cancelled."
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    # app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True, port=5000)
